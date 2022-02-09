@@ -12,7 +12,7 @@ namespace Coodesh.Challenge.Business.Models
         public string NewsSite { get; set; }
         public string Summary { get; set; }
         public DateTime PublishedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public List<Launch> Launches { get; set; }
         public List<Event> Events { get; set; }
     }
