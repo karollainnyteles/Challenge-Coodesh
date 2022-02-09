@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coodesh.Challenge.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Get">
+            <summary>
+            Listar todos os artigos da base de dados, utilizar o sistema de paginação
+            </summary>
+        </member>
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Get(System.Int32)">
+            <summary>
+            Obter a informação somente de um artigo
+            </summary>
+        </member>
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Post">
+            <summary>
+            Adicionar um novo artigo
+            </summary>
+        </member>
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Put(System.Int32)">
+            <summary>
+            Atualizar um artigo baseado no id
+            </summary>
+        </member>
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Delete(System.Int32)">
+            <summary>
+            Remover um artigo baseado no id
+            </summary>
+        </member>
+    </members>
+</doc>
