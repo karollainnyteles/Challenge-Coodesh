@@ -2,6 +2,7 @@ using Coodesh.Challenge.Api.Extensions;
 using Coodesh.Challenge.Command.Articles.Create;
 using Coodesh.Challenge.Command.Mappers;
 using Coodesh.Challenge.Data.Context;
+using Coodesh.Challenge.Query.Mappers;
 using Coodesh.Challenge.Query.Queries.Articles.Find;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -40,7 +41,7 @@ namespace Coodesh.Challenge.Api
 
             services.AddMediatR(typeof(FindArticlesQuery), typeof(CreateArticleCommand));
 
-            services.AddAutoMapper(typeof(ArticleProfile));
+            services.AddAutoMapper(typeof(ArticleProfile), typeof(ArticleResponseProfile));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
