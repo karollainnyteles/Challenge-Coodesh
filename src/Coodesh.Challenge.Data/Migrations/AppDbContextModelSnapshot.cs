@@ -58,9 +58,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Event", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<byte[]>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("varbinary(16)");
 
                     b.Property<int>("ArticleId")
                         .HasColumnType("int");
@@ -78,9 +78,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Launch", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<byte[]>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("varbinary(16)");
 
                     b.Property<int>("ArticleId")
                         .HasColumnType("int");

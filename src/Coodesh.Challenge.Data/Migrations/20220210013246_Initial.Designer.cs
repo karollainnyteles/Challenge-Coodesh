@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coodesh.Challenge.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220209030859_Initial")]
+    [Migration("20220210013246_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,9 +60,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Event", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<byte[]>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("varbinary(16)");
 
                     b.Property<int>("ArticleId")
                         .HasColumnType("int");
@@ -80,9 +80,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Launch", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<byte[]>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("varbinary(16)");
 
                     b.Property<int>("ArticleId")
                         .HasColumnType("int");

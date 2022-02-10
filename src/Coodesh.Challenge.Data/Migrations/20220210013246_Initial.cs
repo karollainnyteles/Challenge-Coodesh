@@ -32,8 +32,7 @@ namespace Coodesh.Challenge.Data.Migrations
                 name: "Event",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<byte[]>(type: "varbinary(16)", nullable: false),
                     ArticleId = table.Column<int>(type: "int", nullable: false),
                     Provider = table.Column<string>(type: "varchar(200)", nullable: false)
                 },
@@ -52,8 +51,7 @@ namespace Coodesh.Challenge.Data.Migrations
                 name: "Launch",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<byte[]>(type: "varbinary(16)", nullable: false),
                     ArticleId = table.Column<int>(type: "int", nullable: false),
                     Provider = table.Column<string>(type: "varchar(200)", nullable: false)
                 },
