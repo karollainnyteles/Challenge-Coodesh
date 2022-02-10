@@ -14,7 +14,7 @@
             Obtém a informação somente de um artigo
             </summary>
         </member>
-        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Post">
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.PostAsync(Coodesh.Challenge.Command.Articles.Create.CreateArticleCommand)">
             <summary>
             Adiciona um novo artigo
             </summary>

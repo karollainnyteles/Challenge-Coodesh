@@ -1,5 +1,6 @@
 ﻿using Coodesh.Challenge.Business.Models;
 using Coodesh.Challenge.Business.Parameters;
+using Coodesh.Challenge.Command.Articles.Create;
 using Coodesh.Challenge.Query.Queries.Articles.Find;
 using Coodesh.Challenge.Query.Queries.Articles.GetById;
 using MediatR;
@@ -54,9 +55,11 @@ namespace Coodesh.Challenge.Api.Controllers
         /// Adiciona um novo artigo
         /// </summary>
         [HttpPost]
-        public IActionResult Post()
+        [ProducesResponseType(typeof(Article), StatusCodes.Status201Created)]
+        public async Task<IActionResult> PostAsync([FromBody] CreateArticleCommand command)
         {
-            return Ok();
+            var response = await _mediator.Send(command);
+            return CreatedAtAction("GetById", new { response.Id }, response);
         }
 
         /// <summary>

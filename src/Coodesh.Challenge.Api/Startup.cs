@@ -1,6 +1,9 @@
 using Coodesh.Challenge.Api.Extensions;
+using Coodesh.Challenge.Command.Articles.Create;
+using Coodesh.Challenge.Command.Mappers;
 using Coodesh.Challenge.Data.Context;
 using Coodesh.Challenge.Query.Queries.Articles.Find;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,13 +31,16 @@ namespace Coodesh.Challenge.Api
             });
 
             services.AddControllers()
+                .AddFluentValidation(a => a.RegisterValidatorsFromAssembly(typeof(CreateArticleCommandValidator).Assembly))
                 .AddNewtonsoftJson(a => a.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddSwagger();
 
             services.AddRepositoriesConfig();
 
-            services.AddMediatR(typeof(FindArticlesQuery));
+            services.AddMediatR(typeof(FindArticlesQuery), typeof(CreateArticleCommand));
+
+            services.AddAutoMapper(typeof(ArticleProfile));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
