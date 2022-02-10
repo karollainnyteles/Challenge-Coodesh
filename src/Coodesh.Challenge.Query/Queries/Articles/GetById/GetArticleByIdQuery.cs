@@ -1,9 +1,9 @@
-﻿using Coodesh.Challenge.Business.Models;
+﻿using Coodesh.Challenge.Query.Queries.Articles.Shared;
 using MediatR;
 
 namespace Coodesh.Challenge.Query.Queries.Articles.GetById
 {
-    public class GetArticleByIdQuery : IRequest<Article>
+    public class GetArticleByIdQuery : IRequest<ArticleResponse>
     {
         public int Id { get; set; }
 

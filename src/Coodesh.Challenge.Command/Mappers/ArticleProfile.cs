@@ -9,6 +9,10 @@ namespace Coodesh.Challenge.Command.Mappers
         public ArticleProfile()
         {
             CreateMap<CreateArticleCommand, Article>();
+
+            CreateMap<Article, CreateArticleResponse>().ReverseMap();
+            CreateMap<Launch, CreateLaunchResponse>().ReverseMap();
+            CreateMap<Event, CreateEventResponse>().ReverseMap();
         }
     }
 }

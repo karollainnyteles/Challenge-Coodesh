@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Coodesh.Challenge.Command.Articles.Create
 {
-    public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand, Article>
+    public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand, CreateArticleResponse>
     {
         private readonly IArticleWriteOnlyRepository _articleWriteOnlyRepository;
         private readonly IMapper _mapper;
@@ -18,13 +18,15 @@ namespace Coodesh.Challenge.Command.Articles.Create
             _mapper = mapper;
         }
 
-        public async Task<Article> Handle(CreateArticleCommand command, CancellationToken cancellationToken)
+        public async Task<CreateArticleResponse> Handle(CreateArticleCommand command, CancellationToken cancellationToken)
         {
             var article = _mapper.Map<Article>(command);
 
             await _articleWriteOnlyRepository.AddAsync(article);
 
-            return article;
+            var articleResponse = _mapper.Map<CreateArticleResponse>(article);
+
+            return articleResponse;
         }
     }
 }
