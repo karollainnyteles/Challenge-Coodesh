@@ -1,7 +1,7 @@
 ﻿namespace Coodesh.Challenge.Business.Models
 {
-    public abstract class Entity
+    public abstract class Entity<T>
     {
-        public int Id { get; set; }
+        public T Id { get; set; }
     }
 }

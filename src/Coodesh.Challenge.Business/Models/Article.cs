@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Coodesh.Challenge.Business.Models
 {
-    public class Article : Entity
+    public class Article : Entity<int>
     {
         public bool Featured { get; set; }
         public string Title { get; set; }
