@@ -13,7 +13,6 @@ namespace Coodesh.Challenge.Command.Articles.Create
         public string NewsSite { get; set; }
         public string Summary { get; set; }
         public DateTime PublishedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
         public List<CreateLaunchResponse> Launches { get; set; }
         public List<CreateEventResponse> Events { get; set; }
     }

@@ -9,5 +9,10 @@ namespace Coodesh.Challenge.Business.Models
         public string Provider { get; set; }
 
         public Article Article { get; set; }
+
+        public Launch()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

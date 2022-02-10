@@ -10,6 +10,7 @@ namespace Coodesh.Challenge.Command.Articles.Create
             Launches = new List<CreateLaunchResponse>();
             Events = new List<CreateEventResponse>();
         }
+
         public int Id { get; set; }
         public bool Featured { get; set; }
         public string Title { get; set; }
@@ -25,13 +26,11 @@ namespace Coodesh.Challenge.Command.Articles.Create
 
     public class CreateLaunchResponse
     {
-        public Guid Id { get; set; }
         public string Provider { get; set; }
     }
 
     public class CreateEventResponse
     {
-        public Guid Id { get; set; }
         public string Provider { get; set; }
     }
 }

@@ -27,9 +27,6 @@ namespace Coodesh.Challenge.Command.Articles.Create
 
             RuleFor(field => field.PublishedAt)
                 .NotEmpty();
-
-            RuleFor(field => field.UpdatedAt)
-                .NotEmpty();
         }
     }
 }
