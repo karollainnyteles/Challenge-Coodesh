@@ -1,5 +1,7 @@
 using Coodesh.Challenge.Api.Extensions;
 using Coodesh.Challenge.Data.Context;
+using Coodesh.Challenge.Query.Queries.Articles.Find;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,11 +27,14 @@ namespace Coodesh.Challenge.Api
                 options.UseMySQL(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(a => a.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddSwagger();
 
             services.AddRepositoriesConfig();
+
+            services.AddMediatR(typeof(FindArticlesQuery));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

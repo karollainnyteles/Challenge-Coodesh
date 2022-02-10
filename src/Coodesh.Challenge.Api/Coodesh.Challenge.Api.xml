@@ -4,9 +4,9 @@
         <name>Coodesh.Challenge.Api</name>
     </assembly>
     <members>
-        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Get">
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.FindAsync(Coodesh.Challenge.Business.Parameters.PaginationParameters)">
             <summary>
-            Listar todos os artigos da base de dados, utilizar o sistema de paginação
+            Listar todos os artigos da base de dados, utilizando paginação
             </summary>
         </member>
         <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Get(System.Int32)">
