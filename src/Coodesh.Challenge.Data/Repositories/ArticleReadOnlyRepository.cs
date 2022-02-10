@@ -21,8 +21,10 @@ namespace Coodesh.Challenge.Data.Repositories
         public async Task<IEnumerable<Article>> FindAsync(PaginationParameters paginationParameters)
         {
             return await _dbContext.Articles
-                .Skip(paginationParameters.Skip)
-                .Take(paginationParameters.PageSize).ToListAsync();
+                .OrderBy(a => a.Id)
+                .Skip(paginationParameters.GetSkip())
+                .Take(paginationParameters.PageSize)
+                .ToListAsync();
         }
 
         public async Task<Article> GetByIdAsync(int id)
