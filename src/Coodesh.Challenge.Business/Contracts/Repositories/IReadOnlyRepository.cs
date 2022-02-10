@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Coodesh.Challenge.Business.Contracts.Repositories
 {
-    public interface IReadOnlyRepository<TEntity> where TEntity : Entity
+    public interface IReadOnlyRepository<TEntity, Tkey> where TEntity : Entity<Tkey>
     {
-        Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByIdAsync(Tkey id);
 
         Task<IEnumerable<TEntity>> FindAsync(PaginationParameters paginationParameters);
     }

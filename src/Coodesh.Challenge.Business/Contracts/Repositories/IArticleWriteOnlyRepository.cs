@@ -2,7 +2,7 @@
 
 namespace Coodesh.Challenge.Business.Contracts.Repositories
 {
-    public interface IArticleWriteOnlyRepository : IWriteOnlyRepository<Article>
+    public interface IArticleWriteOnlyRepository : IWriteOnlyRepository<Article, int>
     {
     }
 }

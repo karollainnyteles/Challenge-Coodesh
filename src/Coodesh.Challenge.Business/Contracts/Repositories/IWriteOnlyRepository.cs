@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace Coodesh.Challenge.Business.Contracts.Repositories
 {
-    public interface IWriteOnlyRepository<in TEntity> where TEntity : Entity
+    public interface IWriteOnlyRepository<TEntity, Tkey> where TEntity : Entity<Tkey>
     {
         Task AddAsync(TEntity entity);
 
-        Task RemoveAsync(int id);
+        Task RemoveAsync(Tkey id);
 
         Task UpdateAsync(TEntity entity);
     }
