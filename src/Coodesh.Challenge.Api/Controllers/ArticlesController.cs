@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Coodesh.Challenge.Business.Models;
+using Coodesh.Challenge.Business.Parameters;
+using Coodesh.Challenge.Query.Queries.Articles.Find;
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Coodesh.Challenge.Api.Controllers
 {
@@ -6,18 +13,26 @@ namespace Coodesh.Challenge.Api.Controllers
     [Route("[controller]")]
     public class ArticlesController : ControllerBase
     {
-        /// <summary>
-        /// Listar todos os artigos da base de dados, utilizar o sistema de paginação
-        /// </summary>
+        private readonly IMediator _mediator;
 
-        [HttpGet]
-        public IActionResult Get()
+        public ArticlesController(IMediator mediator)
         {
-            return Ok();
+            _mediator = mediator;
         }
 
         /// <summary>
-        /// Obter a informação somente de um artigo
+        /// Lista todos os artigos da base de dados, utilizando paginação
+        /// </summary>
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<Article>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> FindAsync([FromQuery] PaginationParameters parameters)
+        {
+            var response = await _mediator.Send(new FindArticlesQuery(parameters));
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Obtém a informação somente de um artigo
         /// </summary>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
@@ -26,7 +41,7 @@ namespace Coodesh.Challenge.Api.Controllers
         }
 
         /// <summary>
-        /// Adicionar um novo artigo
+        /// Adiciona um novo artigo
         /// </summary>
         [HttpPost]
         public IActionResult Post()
@@ -35,7 +50,7 @@ namespace Coodesh.Challenge.Api.Controllers
         }
 
         /// <summary>
-        /// Atualizar um artigo baseado no id
+        /// Atualiza um artigo baseado no id
         /// </summary>
         [HttpPut("{id}")]
         public IActionResult Put(int id)
@@ -44,7 +59,7 @@ namespace Coodesh.Challenge.Api.Controllers
         }
 
         /// <summary>
-        /// Remover um artigo baseado no id
+        /// Remove um artigo baseado no id
         /// </summary>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
