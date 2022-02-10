@@ -6,27 +6,27 @@
     <members>
         <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.FindAsync(Coodesh.Challenge.Business.Parameters.PaginationParameters)">
             <summary>
-            Listar todos os artigos da base de dados, utilizando paginação
+            Lista todos os artigos da base de dados, utilizando paginação
             </summary>
         </member>
-        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Get(System.Int32)">
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.GetByIdAsync(System.Int32)">
             <summary>
-            Obter a informação somente de um artigo
+            Obtém a informação somente de um artigo
             </summary>
         </member>
         <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Post">
             <summary>
-            Adicionar um novo artigo
+            Adiciona um novo artigo
             </summary>
         </member>
         <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Put(System.Int32)">
             <summary>
-            Atualizar um artigo baseado no id
+            Atualiza um artigo baseado no id
             </summary>
         </member>
         <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.Delete(System.Int32)">
             <summary>
-            Remover um artigo baseado no id
+            Remove um artigo baseado no id
             </summary>
         </member>
     </members>

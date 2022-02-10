@@ -1,6 +1,7 @@
 ﻿using Coodesh.Challenge.Business.Models;
 using Coodesh.Challenge.Business.Parameters;
 using Coodesh.Challenge.Query.Queries.Articles.Find;
+using Coodesh.Challenge.Query.Queries.Articles.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -35,9 +36,18 @@ namespace Coodesh.Challenge.Api.Controllers
         /// Obtém a informação somente de um artigo
         /// </summary>
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        [ProducesResponseType(typeof(Article), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            return Ok();
+            var response = await _mediator.Send(new GetArticleByIdQuery(id));
+
+            if (response is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(response);
         }
 
         /// <summary>
