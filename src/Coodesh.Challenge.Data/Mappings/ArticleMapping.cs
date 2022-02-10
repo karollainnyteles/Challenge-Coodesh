@@ -45,6 +45,9 @@ namespace Coodesh.Challenge.Data.Mappings
             builder.HasMany(p => p.Events)
                 .WithOne(p => p.Article)
                 .HasForeignKey(p => p.ArticleId);
+
+            builder.Navigation(a => a.Events).AutoInclude();
+            builder.Navigation(a => a.Launches).AutoInclude();
         }
     }
 }
