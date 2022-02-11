@@ -29,7 +29,9 @@ namespace Coodesh.Challenge.Data.Repositories
 
         public async Task<Article> GetByIdAsync(int id)
         {
-            return await _dbContext.Articles.FindAsync(id);
+            return await _dbContext.Articles
+                .AsNoTracking()
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
     }
 }
