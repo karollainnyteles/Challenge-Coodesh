@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Articles\Update\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Coodesh.Challenge.Business\Coodesh.Challenge.Business.csproj" />
   </ItemGroup>
 
