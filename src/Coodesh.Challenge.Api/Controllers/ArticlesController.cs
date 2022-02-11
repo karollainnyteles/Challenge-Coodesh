@@ -1,5 +1,7 @@
 ﻿using Coodesh.Challenge.Business.Parameters;
 using Coodesh.Challenge.Command.Articles.Create;
+using Coodesh.Challenge.Command.Articles.Remove;
+using Coodesh.Challenge.Command.Articles.Update;
 using Coodesh.Challenge.Query.Queries.Articles.Find;
 using Coodesh.Challenge.Query.Queries.Articles.GetById;
 using Coodesh.Challenge.Query.Queries.Articles.Shared;
@@ -43,7 +45,7 @@ namespace Coodesh.Challenge.Api.Controllers
         {
             var response = await _mediator.Send(new GetArticleByIdQuery(id));
 
-            if (response is null)
+            if (response == null)
             {
                 return NotFound();
             }
@@ -65,19 +67,38 @@ namespace Coodesh.Challenge.Api.Controllers
         /// <summary>
         /// Atualiza um artigo baseado no id
         /// </summary>
-        [HttpPut("{id}")]
-        public IActionResult Put(int id)
+        [HttpPut("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] UpdateArticleCommand command)
         {
-            return Ok();
+            command.Id = id;
+            var response = await _mediator.Send(command);
+
+            if (response == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
 
         /// <summary>
         /// Remove um artigo baseado no id
         /// </summary>
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> RemoveAsync(int id)
         {
-            return Ok();
+            var response = await _mediator.Send(new RemoveArticleCommand(id));
+
+            if (response == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
     }
 }
