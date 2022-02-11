@@ -10,5 +10,7 @@ namespace Coodesh.Challenge.Business.Contracts.Repositories
         Task RemoveAsync(Tkey id);
 
         Task UpdateAsync(TEntity entity);
+
+        Task<int> SaveChangesAsync();
     }
 }
