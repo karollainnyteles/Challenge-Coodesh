@@ -23,6 +23,7 @@ namespace Coodesh.Challenge.Command.Articles.Create
             var article = _mapper.Map<Article>(command);
 
             await _articleWriteOnlyRepository.AddAsync(article);
+            await _articleWriteOnlyRepository.SaveChangesAsync();
 
             var articleResponse = _mapper.Map<CreateArticleResponse>(article);
 
