@@ -22,6 +22,7 @@ namespace Coodesh.Challenge.Data.Context
         public DbSet<Article> Articles { get; set; }
         public DbSet<Launch> Launches { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<SynchronizationControl> SynchronizationControls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
