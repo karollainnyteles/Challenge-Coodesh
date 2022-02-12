@@ -18,7 +18,7 @@ namespace Coodesh.Challenge.ClientHttp.Services
             _client.BaseAddress = new Uri("https://api.spaceflightnewsapi.net/");
         }
 
-        public async Task<IEnumerable<Article>> Get(int limit, int skip)
+        public async Task<List<Article>> Get(int limit, int skip)
         {
             var options = new JsonSerializerOptions
             {
@@ -28,7 +28,7 @@ namespace Coodesh.Challenge.ClientHttp.Services
             var response = await _client.GetAsync($"v3/articles?_limit={limit}&_sort=id&_start={skip}");
             var content = await response.Content.ReadAsStringAsync();
 
-            return JsonSerializer.Deserialize<IEnumerable<Article>>(content, options);
+            return JsonSerializer.Deserialize<List<Article>>(content, options);
         }
 
         public async Task<int> GetCountAsync()

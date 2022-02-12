@@ -8,6 +8,6 @@ namespace Coodesh.Challenge.Business.Contracts.Services
     {
         Task<int> GetCountAsync();
 
-        Task<IEnumerable<Article>> Get(int limit, int skip);
+        Task<List<Article>> Get(int limit, int skip);
     }
 }
