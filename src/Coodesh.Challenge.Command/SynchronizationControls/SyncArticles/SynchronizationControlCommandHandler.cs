@@ -39,8 +39,7 @@ namespace Coodesh.Challenge.Command.SynchronizationControls.SyncArticles
             var skip = articlesCount.GetValueOrDefault();
             for (int i = 0; i < diference; i += limit)
             {
-                skip += i;
-                var list = await _articleService.Get(limit, skip);
+                var list = await _articleService.Get(limit, skip + i);
                 list.ForEach(a => a.Launches.ForEach(l => l.Id = Guid.NewGuid()));
                 list.ForEach(a => a.Events.ForEach(l => l.Id = 0));
                 articlesApi.AddRange(list);
