@@ -14,6 +14,8 @@
 
 >  This is a challenge by [Coodesh](https://coodesh.com/)
 
+>  Acesse a apresentação do [projeto](https://www.loom.com/share/8610efa74ac646e69369582b7f39627d)
+
 
 Essa Api utiliza os dados do projeto [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation), realizando sincronização diária e permitindo gerenciamento dos dados.
 
