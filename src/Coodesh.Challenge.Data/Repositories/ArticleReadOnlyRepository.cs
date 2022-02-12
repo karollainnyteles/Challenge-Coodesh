@@ -21,6 +21,7 @@ namespace Coodesh.Challenge.Data.Repositories
         public async Task<IEnumerable<Article>> FindAsync(PaginationParameters paginationParameters)
         {
             return await _dbContext.Articles
+                .AsNoTracking()
                 .OrderBy(a => a.Id)
                 .Skip(paginationParameters.GetSkip())
                 .Take(paginationParameters.PageSize)

@@ -5,23 +5,23 @@ using System.Threading.Tasks;
 
 namespace Coodesh.Challenge.Data.Repositories
 {
-    public class ArticleWriteOnlyRepository : IArticleWriteOnlyRepository
+    public class SynchronizationControlWriteOnlyRepository : ISynchronizationControlWriteOnlyRepository
     {
         private readonly AppDbContext _dbContext;
 
-        public ArticleWriteOnlyRepository(AppDbContext dbContext)
+        public SynchronizationControlWriteOnlyRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task AddAsync(Article entity)
+        public async Task AddAsync(SynchronizationControl entity)
         {
-            await _dbContext.Articles.AddAsync(entity);
+            await _dbContext.SynchronizationControls.AddAsync(entity);
         }
 
         public Task RemoveAsync(int id)
         {
-            _dbContext.Articles.Remove(new Article { Id = id });
+            _dbContext.SynchronizationControls.Remove(new SynchronizationControl { Id = id });
             return Task.CompletedTask;
         }
 
@@ -30,9 +30,9 @@ namespace Coodesh.Challenge.Data.Repositories
             return await _dbContext.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(Article entity)
+        public Task UpdateAsync(SynchronizationControl entity)
         {
-            _dbContext.Articles.Update(entity);
+            _dbContext.SynchronizationControls.Update(entity);
             return Task.CompletedTask;
         }
     }
