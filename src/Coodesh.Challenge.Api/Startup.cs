@@ -1,5 +1,5 @@
 using Coodesh.Challenge.Api.Extensions;
-using Coodesh.Challenge.Command.Articles.Create;
+using Coodesh.Challenge.Command.Commands.Articles.Create;
 using Coodesh.Challenge.Command.Mappers;
 using Coodesh.Challenge.Data.Context;
 using Coodesh.Challenge.Query.Mappers;

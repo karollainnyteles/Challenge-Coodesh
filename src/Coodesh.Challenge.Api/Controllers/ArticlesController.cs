@@ -1,7 +1,7 @@
 ﻿using Coodesh.Challenge.Business.Parameters;
-using Coodesh.Challenge.Command.Articles.Create;
-using Coodesh.Challenge.Command.Articles.Remove;
-using Coodesh.Challenge.Command.Articles.Update;
+using Coodesh.Challenge.Command.Commands.Articles.Create;
+using Coodesh.Challenge.Command.Commands.Articles.Remove;
+using Coodesh.Challenge.Command.Commands.Articles.Update;
 using Coodesh.Challenge.Query.Queries.Articles.Find;
 using Coodesh.Challenge.Query.Queries.Articles.GetById;
 using Coodesh.Challenge.Query.Queries.Articles.Shared;

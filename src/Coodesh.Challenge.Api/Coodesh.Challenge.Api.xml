@@ -14,12 +14,12 @@
             Obtém a informação somente de um artigo
             </summary>
         </member>
-        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.PostAsync(Coodesh.Challenge.Command.Articles.Create.CreateArticleCommand)">
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.PostAsync(Coodesh.Challenge.Command.Commands.Articles.Create.CreateArticleCommand)">
             <summary>
             Adiciona um novo artigo
             </summary>
         </member>
-        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.UpdateAsync(System.Int32,Coodesh.Challenge.Command.Articles.Update.UpdateArticleCommand)">
+        <member name="M:Coodesh.Challenge.Api.Controllers.ArticlesController.UpdateAsync(System.Int32,Coodesh.Challenge.Command.Commands.Articles.Update.UpdateArticleCommand)">
             <summary>
             Atualiza um artigo baseado no id
             </summary>
