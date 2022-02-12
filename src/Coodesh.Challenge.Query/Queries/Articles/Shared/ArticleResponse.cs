@@ -26,7 +26,7 @@ namespace Coodesh.Challenge.Query.Queries.Articles.Shared
 
     public class EventResponse
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Provider { get; set; }
     }
 }
