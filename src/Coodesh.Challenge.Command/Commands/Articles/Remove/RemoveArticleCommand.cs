@@ -1,7 +1,7 @@
 ﻿using Coodesh.Challenge.Business.Models;
 using MediatR;
 
-namespace Coodesh.Challenge.Command.Articles.Remove
+namespace Coodesh.Challenge.Command.Commands.Articles.Remove
 {
     public class RemoveArticleCommand : IRequest<Article>
     {

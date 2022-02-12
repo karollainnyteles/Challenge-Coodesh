@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Coodesh.Challenge.Command.Articles.Update
+namespace Coodesh.Challenge.Command.Commands.Articles.Update
 {
     public class UpdateArticleCommandValidator : AbstractValidator<UpdateArticleCommand>
     {

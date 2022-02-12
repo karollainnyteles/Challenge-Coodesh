@@ -1,4 +1,4 @@
-﻿namespace Coodesh.Challenge.Command.Articles.Update
+﻿namespace Coodesh.Challenge.Command.Commands.Articles.Update
 {
     public class UpdateEventCommand
     {

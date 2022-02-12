@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Coodesh.Challenge.Command.Articles.Update
+namespace Coodesh.Challenge.Command.Commands.Articles.Update
 {
     public class UpdateArticleCommandHandler : IRequestHandler<UpdateArticleCommand, Article>
     {

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Coodesh.Challenge.Command.SynchronizationControls.SyncArticles
+namespace Coodesh.Challenge.Command.Commands.SynchronizationControls.SyncArticles
 {
     public class SynchronizationControlCommandHandler : IRequestHandler<SynchronizationControlCommand>
     {

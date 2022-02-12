@@ -4,7 +4,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Coodesh.Challenge.Command.Articles.Remove
+namespace Coodesh.Challenge.Command.Commands.Articles.Remove
 {
     public class RemoveArticleCommandHandler : IRequestHandler<RemoveArticleCommand, Article>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Coodesh.Challenge.Command.Articles.Create
+namespace Coodesh.Challenge.Command.Commands.Articles.Create
 {
     public class CreateArticleResponse
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Coodesh.Challenge.Command.SynchronizationControls.SyncArticles
+namespace Coodesh.Challenge.Command.Commands.SynchronizationControls.SyncArticles
 {
     public class SynchronizationControlCommand : IRequest
     {

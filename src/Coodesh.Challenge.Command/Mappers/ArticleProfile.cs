@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Coodesh.Challenge.Business.Models;
-using Coodesh.Challenge.Command.Articles.Create;
-using Coodesh.Challenge.Command.Articles.Update;
+using Coodesh.Challenge.Command.Commands.Articles.Create;
+using Coodesh.Challenge.Command.Commands.Articles.Update;
 
 namespace Coodesh.Challenge.Command.Mappers
 {

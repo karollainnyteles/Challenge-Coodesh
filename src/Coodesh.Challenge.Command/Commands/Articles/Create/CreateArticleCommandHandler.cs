@@ -5,7 +5,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Coodesh.Challenge.Command.Articles.Create
+namespace Coodesh.Challenge.Command.Commands.Articles.Create
 {
     public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand, CreateArticleResponse>
     {
