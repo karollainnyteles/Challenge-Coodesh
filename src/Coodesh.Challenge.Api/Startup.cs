@@ -38,6 +38,7 @@ namespace Coodesh.Challenge.Api
             services.AddSwagger();
 
             services.AddRepositoriesConfig();
+            services.AddServicesConfig();
 
             services.AddMediatR(typeof(FindArticlesQuery), typeof(CreateArticleCommand));
 

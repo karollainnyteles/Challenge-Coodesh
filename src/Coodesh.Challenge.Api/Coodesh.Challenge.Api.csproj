@@ -26,6 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Coodesh.Challenge.ClientHttp\Coodesh.Challenge.ClientHttp.csproj" />
 		<ProjectReference Include="..\Coodesh.Challenge.Command\Coodesh.Challenge.Command.csproj" />
 		<ProjectReference Include="..\Coodesh.Challenge.Data\Coodesh.Challenge.Data.csproj" />
 		<ProjectReference Include="..\Coodesh.Challenge.Query\Coodesh.Challenge.Query.csproj" />
