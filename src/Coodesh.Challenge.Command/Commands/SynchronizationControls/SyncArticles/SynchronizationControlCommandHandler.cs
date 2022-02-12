@@ -30,8 +30,8 @@ namespace Coodesh.Challenge.Command.Commands.SynchronizationControls.SyncArticle
         public async Task<Unit> Handle(SynchronizationControlCommand request, CancellationToken cancellationToken)
         {
             var countArticlesApi = await _articleService.GetCountAsync();
-            var lastControl = await _synchronizationControlReadOnlyRepository.GetLast();
-            var articlesCount = lastControl?.ArticlesCount;
+            var lastSync = await _synchronizationControlReadOnlyRepository.GetLast();
+            var articlesCount = lastSync?.ArticlesCount;
             var diference = countArticlesApi - articlesCount.GetValueOrDefault();
 
             var limit = 50;
