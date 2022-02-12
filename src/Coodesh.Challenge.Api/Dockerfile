@@ -7,10 +7,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["src/Coodesh.Challenge.Api/Coodesh.Challenge.Api.csproj", "src/Coodesh.Challenge.Api/"]
-RUN dotnet restore "src/Coodesh.Challenge.Api/Coodesh.Challenge.Api.csproj"
+COPY ["./Coodesh.Challenge.Api/Coodesh.Challenge.Api.csproj", "Coodesh.Challenge.Api/"]
+COPY ["./Coodesh.Challenge.Business/Coodesh.Challenge.Business.csproj", "Coodesh.Challenge.Business/"]
+COPY ["./Coodesh.Challenge.ClientHttp/Coodesh.Challenge.ClientHttp.csproj", "Coodesh.Challenge.ClientHttp/"]
+COPY ["./Coodesh.Challenge.Command/Coodesh.Challenge.Command.csproj", "Coodesh.Challenge.Command/"]
+COPY ["./Coodesh.Challenge.Data/Coodesh.Challenge.Data.csproj", "Coodesh.Challenge.Data/"]
+COPY ["./Coodesh.Challenge.Query/Coodesh.Challenge.Query.csproj", "Coodesh.Challenge.Query/"]
+RUN dotnet restore "./Coodesh.Challenge.Api/Coodesh.Challenge.Api.csproj"
 COPY . .
-WORKDIR "/src/src/Coodesh.Challenge.Api"
+WORKDIR "Coodesh.Challenge.Api"
 RUN dotnet build "Coodesh.Challenge.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
