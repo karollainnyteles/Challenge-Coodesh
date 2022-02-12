@@ -1,3 +1,4 @@
+using Coodesh.Challenge.Api.Cron;
 using Coodesh.Challenge.Api.Extensions;
 using Coodesh.Challenge.Command.Commands.Articles.Create;
 using Coodesh.Challenge.Command.Mappers;
@@ -17,9 +18,15 @@ namespace Coodesh.Challenge.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostEnvironment hostEnvironment)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(hostEnvironment.ContentRootPath)
+                .AddJsonFile("appsettings.json", true, true)
+                .AddJsonFile($"appsettings.{hostEnvironment.EnvironmentName}.json", true, true)
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -43,6 +50,8 @@ namespace Coodesh.Challenge.Api
             services.AddMediatR(typeof(FindArticlesQuery), typeof(CreateArticleCommand));
 
             services.AddAutoMapper(typeof(ArticleProfile), typeof(ArticleResponseProfile));
+
+            services.AddHostedService<SynchronizationApiCron>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,8 +59,8 @@ namespace Coodesh.Challenge.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwaggerConfig();
             }
+            app.UseSwaggerConfig();
 
             app.UseHttpsRedirection();
 
