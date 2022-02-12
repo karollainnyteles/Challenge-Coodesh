@@ -1,5 +1,6 @@
 using Coodesh.Challenge.Api.Cron;
 using Coodesh.Challenge.Api.Extensions;
+using Coodesh.Challenge.Api.Extensions.Middleware;
 using Coodesh.Challenge.Command.Commands.Articles.Create;
 using Coodesh.Challenge.Command.Mappers;
 using Coodesh.Challenge.Data.Context;
@@ -60,6 +61,9 @@ namespace Coodesh.Challenge.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
+
             app.UseSwaggerConfig();
 
             app.UseHttpsRedirection();

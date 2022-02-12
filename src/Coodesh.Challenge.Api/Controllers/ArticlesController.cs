@@ -29,6 +29,7 @@ namespace Coodesh.Challenge.Api.Controllers
         /// </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ArticleResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> FindAsync([FromQuery] PaginationParameters parameters)
         {
             var response = await _mediator.Send(new FindArticlesQuery(parameters));
@@ -41,6 +42,7 @@ namespace Coodesh.Challenge.Api.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ArticleResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             var response = await _mediator.Send(new GetArticleByIdQuery(id));
@@ -58,6 +60,7 @@ namespace Coodesh.Challenge.Api.Controllers
         /// </summary>
         [HttpPost]
         [ProducesResponseType(typeof(CreateArticleResponse), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PostAsync([FromBody] CreateArticleCommand command)
         {
             var response = await _mediator.Send(command);
@@ -70,6 +73,7 @@ namespace Coodesh.Challenge.Api.Controllers
         [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UpdateAsync(int id, [FromBody] UpdateArticleCommand command)
         {
             command.Id = id;
@@ -86,9 +90,10 @@ namespace Coodesh.Challenge.Api.Controllers
         /// <summary>
         /// Remove um artigo baseado no id
         /// </summary>
+        [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpDelete("{id:int}")]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> RemoveAsync(int id)
         {
             var response = await _mediator.Send(new RemoveArticleCommand(id));
