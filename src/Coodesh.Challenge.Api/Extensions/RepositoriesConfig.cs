@@ -12,6 +12,8 @@ namespace Coodesh.Challenge.Api.Extensions
             services.AddScoped<IArticleWriteOnlyRepository, ArticleWriteOnlyRepository>();
             services.AddScoped<IEventWriteOnlyRepository, EventWriteOnlyRepository>();
             services.AddScoped<ILaunchWriteOnlyRepository, LaunchWriteOnlyRepository>();
+            services.AddScoped<ISynchronizationControlWriteOnlyRepository, SynchronizationControlWriteOnlyRepository>();
+            services.AddScoped<ISynchronizationControlReadOnlyRepository, SynchronizationControlReadOnlyRepository>();
 
             return services;
         }
