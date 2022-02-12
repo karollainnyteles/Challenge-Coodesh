@@ -29,7 +29,7 @@ namespace Coodesh.Challenge.Data.Mappings
                 .HasColumnType("varchar(300)");
 
             builder.Property(p => p.Summary)
-                .HasColumnType("varchar(600)");
+                .HasColumnType("varchar(2000)");
 
             builder.Property(p => p.PublishedAt)
                 .IsRequired()

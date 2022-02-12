@@ -29,10 +29,25 @@ namespace Coodesh.Challenge.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SynchronizationControl",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    ArticlesCount = table.Column<int>(type: "int", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SynchronizationControl", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Event",
                 columns: table => new
                 {
-                    Id = table.Column<byte[]>(type: "varbinary(16)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     ArticleId = table.Column<int>(type: "int", nullable: false),
                     Provider = table.Column<string>(type: "varchar(200)", nullable: false)
                 },
@@ -84,6 +99,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Launch");
+
+            migrationBuilder.DropTable(
+                name: "SynchronizationControl");
 
             migrationBuilder.DropTable(
                 name: "Article");

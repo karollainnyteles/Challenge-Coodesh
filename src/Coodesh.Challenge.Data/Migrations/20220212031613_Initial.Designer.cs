@@ -3,14 +3,16 @@ using System;
 using Coodesh.Challenge.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Coodesh.Challenge.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220212031613_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace Coodesh.Challenge.Data.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Summary")
-                        .HasColumnType("varchar(2000)");
+                        .HasColumnType("varchar(600)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -78,9 +80,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Launch", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<byte[]>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("varbinary(16)");
 
                     b.Property<int>("ArticleId")
                         .HasColumnType("int");
@@ -107,9 +109,6 @@ namespace Coodesh.Challenge.Data.Migrations
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime");
-
-                    b.Property<int>("SynchronizedArticles")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

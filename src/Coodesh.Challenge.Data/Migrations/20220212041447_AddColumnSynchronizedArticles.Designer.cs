@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coodesh.Challenge.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220210013246_Initial")]
-    partial class Initial
+    [Migration("20220212041447_AddColumnSynchronizedArticles")]
+    partial class AddColumnSynchronizedArticles
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,9 +60,9 @@ namespace Coodesh.Challenge.Data.Migrations
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Event", b =>
                 {
-                    b.Property<byte[]>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("varbinary(16)");
+                        .HasColumnType("int");
 
                     b.Property<int>("ArticleId")
                         .HasColumnType("int");
@@ -96,6 +96,26 @@ namespace Coodesh.Challenge.Data.Migrations
                     b.HasIndex("ArticleId");
 
                     b.ToTable("Launch");
+                });
+
+            modelBuilder.Entity("Coodesh.Challenge.Business.Models.SynchronizationControl", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArticlesCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("SynchronizedArticles")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SynchronizationControl");
                 });
 
             modelBuilder.Entity("Coodesh.Challenge.Business.Models.Event", b =>

@@ -12,6 +12,10 @@ namespace Coodesh.Challenge.Data.Mappings
 
             builder.HasKey(p => p.Id);
 
+            builder.Property(p => p.Id)
+                .IsRequired()
+                .HasColumnType("char(36)");
+
             builder.Property(p => p.Provider)
                 .IsRequired()
                 .HasColumnType("varchar(200)");

@@ -1,7 +1,6 @@
 ﻿using Coodesh.Challenge.Business.Contracts.Repositories;
 using Coodesh.Challenge.Business.Models;
 using Coodesh.Challenge.Data.Context;
-using System;
 using System.Threading.Tasks;
 
 namespace Coodesh.Challenge.Data.Repositories
@@ -20,7 +19,7 @@ namespace Coodesh.Challenge.Data.Repositories
             await _dbContext.AddAsync(entity);
         }
 
-        public Task RemoveAsync(Guid id)
+        public Task RemoveAsync(int id)
         {
             _dbContext.Remove(new Event { Id = id });
             return Task.CompletedTask;
